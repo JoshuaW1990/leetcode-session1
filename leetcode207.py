@@ -5,25 +5,25 @@ class Solution(object):
         :type prerequisites: List[List[int]]
         :rtype: bool
         """
-        if prerequisites == []:
-            return False
-        course_dict = {}
-        for item in prerequisites:
-            course_dict[item[0]] = item[1]
-        for i in xrange(len(prerequisites)):
-            stack = [(prerequisites[i][0], set([prerequisites[i][0]]))]
-            while stack:
-            	course, visited = stack.pop()
-            	if course not in course_dict:
-            		if len(visited) == numCourses:
-            			return True
-            		else:
-            			break
-            	pre_course = course_dict[course]
-            	if pre_course in visited:
-            		continue
-            	else:
-            		visited |= pre_course
-            		stack.append(pre_course, visited)
-        return False
+        
+        def dfs(index):
+            if visited[index] == -1:
+                return False
+            if visited[index] == 1:
+                return True
+            visited[index] = -1
+            for course in graph[index]:
+                if not dfs(course):
+                    return False
+            visited[index] = 1
+            return True
 
+        graph = [[] for _ in xrange(numCourses)]
+        visited = [0 for _ in xrange(numCourses)]
+        for cur_course, pre_course in prerequisites:
+            graph[cur_course].append(pre_course)
+
+        for i in xrange(numCourses):
+            if not dfs(i):
+                return False
+        return True
