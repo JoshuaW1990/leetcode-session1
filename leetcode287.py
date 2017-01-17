@@ -14,5 +14,9 @@ class Solution(object):
             if nums[i] != i + 1:
                 break
         return nums[i]
+
+
+
+
              
 
