@@ -37,5 +37,7 @@ class Solution(object):
             for num in heightList[1:-1]:
                 result += smallPeak - num
             return result
-        
+
         return singleTrap(height[start_index : end_index + 1])
+
+print "success"
