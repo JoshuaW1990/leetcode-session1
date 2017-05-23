@@ -15,4 +15,3 @@ class Solution(object):
             return self.addBinary(a[:-1], b[:-1]) + '0'
         else:
             return self.addBinary(a[:-1], b[:-1]) + '1'
-            
