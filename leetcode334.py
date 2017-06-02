@@ -1,4 +1,8 @@
 """
+First sessions
+"""
+
+"""
 Naive solution: O(n^3) time complexity
 This solution will cause time limit exceeded
 """
@@ -35,3 +39,6 @@ class Solution(object):
             else:
                 return True
         return False
+
+
+        
