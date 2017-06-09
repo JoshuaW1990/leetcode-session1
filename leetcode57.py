@@ -1,3 +1,7 @@
+"""
+First session
+"""
+
 # Definition for an interval.
 # class Interval(object):
 #     def __init__(self, s=0, e=0):
@@ -38,4 +42,44 @@ class Solution(object):
         tail.reverse()
         result = head + [newInterval] + tail
         return result
+
+
+"""
+Second session
+"""
+# Definition for an interval.
+# class Interval(object):
+#     def __init__(self, s=0, e=0):
+#         self.start = s
+#         self.end = e
+
+class Solution(object):
+    def insert(self, intervals, newInterval):
+        """
+        :type intervals: List[Interval]
+        :type newInterval: Interval
+        :rtype: List[Interval]
+        """
+        s, e = newInterval.start, newInterval.end
+        left = [item for item in intervals if item.end < s]
+        right = [item for item in intervals if item.start > e]
+
+        if left + right != intervals:
+            s = min(s, intervals[len(left)].start)
+            e = max(e, intervals[-1-len(right)].end)
+        
+        return left + [Interval(s, e)] + right 
+
+
+
+
+
+
+
+
+
+
+
+
+
             
