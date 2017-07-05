@@ -12,7 +12,7 @@ class Solution(object):
         # bisection method
         low = 0
         high = n
-        
+
         def guessHighLow(low, high):
             if (high + low) % 2 == 1:
                 mid = (high + low ) / 2 + 1
@@ -24,5 +24,5 @@ class Solution(object):
                 return guessHighLow(low, mid)
             else:
                 return mid
-        
+
         return guessHighLow(low, high)
