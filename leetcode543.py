@@ -14,8 +14,6 @@ class Solution(object):
         diameter = max([leftDiameter, rightDiameter, leftDepth + rightDepth])
         return max(leftDepth, rightDepth) + 1, diameter
 
-
-
     def diameterOfBinaryTree(self, root):
         """
         Use recursive
