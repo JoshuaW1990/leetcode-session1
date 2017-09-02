@@ -22,3 +22,5 @@ class Solution:
                 ans[i][k] = cnt
                 i, cnt = i - 1, cnt + 1
         return ans
+
+
