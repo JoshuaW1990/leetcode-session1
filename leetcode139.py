@@ -28,11 +28,7 @@ class Solution(object):
                 if DP[i] == 0:
                     DP[i] = -1
 
-
         if DP[-1] == -1:
             return False
         else:
             return True
-                    
-                
-        
