@@ -41,3 +41,38 @@ class Solution(object):
         return singleTrap(height[start_index : end_index + 1])
 
 print "success"
+
+
+
+# second session
+class Solution(object):
+    def trap(self, height):
+        """
+        :type height: List[int]
+        :rtype: int
+        """
+        if len(height) == 0:
+            return 0
+        maxHeight = max(height)
+        left = 0
+        right = len(height) - 1
+        currentHeight = 0
+        water = 0
+        while height[left] < maxHeight:
+            if height[left] > currentHeight:
+                currentHeight = height[left]
+            else:
+                water += currentHeight - height[left]
+            left += 1
+        currentHeight = 0
+        while height[right] < maxHeight:
+            if height[right] > currentHeight:
+                currentHeight = height[right]
+            else:
+                water += currentHeight - height[right]
+            right -= 1
+        if left == right:
+            return water
+        for i in xrange(left, right):
+            water += maxHeight - height[i]
+        return water
